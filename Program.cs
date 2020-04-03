@@ -12,14 +12,10 @@ namespace SocketCom
                 server.Listen();
             } else if(args[0] == "client")
             {
-                string name = "Cliente";
-                try
-                {
-                    name = args[1];
-                }
-                catch (Exception) { }
-
-                // Ejecución de cliente .NET Core
+                Console.WriteLine("Ingrese el Nombre del cliente");
+                string name = Console.ReadLine();
+                TCPCliente cliente = new TCPCliente(name ,"127.0.0.1", 8080);
+                cliente.SendMessage();
             }
         }
     }
